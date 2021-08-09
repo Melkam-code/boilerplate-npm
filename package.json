@@ -4,6 +4,7 @@
 	"description": "working on node js project",
 	"keywords": ["freecodecamp", "nodejs", "backend"],
 	"license": "MIT",
+	"version": "1.0.0",
 	"dependencies": {
 		"express": "^4.14.0"
 	},
