@@ -1,6 +1,14 @@
 var express = require('express');
 var app = express();
 
+//chaining middleware and a handler to a specific route
+app.get('/now', function middleware(req, res, next){
+  req.time = new Date().toString();
+  next()
+}, function handler(req, res){
+  res.json({time: req.time})
+});
+
 //create a middleware 
 app.use(function(req, res, next) {
   var string = req.method + " " + req.path + " - " + req.ip;
