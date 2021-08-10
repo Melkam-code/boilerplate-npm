@@ -1,6 +1,14 @@
 var express = require('express');
 var app = express();
 
+//create a middleware 
+app.use(function(req, res, next) {
+  var string = req.method + " " + req.path + " - " + req.ip;
+  console.log(string)
+  next();
+});
+
+
 //to send file
 app.get("/", function(req, res){
   res.sendFile(__dirname + "/public/index.html")
@@ -15,3 +23,4 @@ app.get("/json", (req, res) => {
     res.json({"message": "Hello json"})
   }
 });
+
